@@ -1,6 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { findUser } from '../actions/userActions';
 
-const User = { username, url, name, bio };
+const User = ({ username, followers, following, url }) => {
+  return (
+    <>
+      <dl>
+        <dt>{username}</dt>
+        <dd>{followers}</dd>
+        <dd>{following}</dd>
+        <dd>{url}</dd>
+      </dl>
+    </>
+  );
+};
+
+User.propTypes = {
+  username: PropTypes.string.isRequired,
+  followers: PropTypes.number.isRequired,
+  following: PropTypes.number.isRequired,
+  url: PropTypes.string.isRequired,
+};
+
+export default User;
