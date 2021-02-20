@@ -4,9 +4,19 @@ export const findGitHubUser = (user) => {
     .then(({ users }) =>
       users.map((user) => ({
         username: user.login,
+        followers: user.followers,
+        following: user.following,
         url: user.html_url,
-        name: user.name,
-        bio: user.bio,
+      }))
+    );
+};
+
+export const findUserRepos = (user) => {
+  return fetch(`http://api.github.com/users/${user}/repos`)
+    .then((res) => res.json())
+    .then(({ repos }) =>
+      repos.map((repo) => ({
+        repoName: repo.name,
       }))
     );
 };
