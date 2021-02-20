@@ -16,8 +16,8 @@ const User = ({ username, followers, following, url }) => {
 
 User.propTypes = {
   username: PropTypes.string.isRequired,
-  followers: PropTypes.number.isRequired,
-  following: PropTypes.number.isRequired,
+  followers: PropTypes.string.isRequired,
+  following: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
 };
 
